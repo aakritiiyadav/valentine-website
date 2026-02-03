@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>You Said YES 💘</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+
+    .container {
+      animation: zoomIn 1.5s ease;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 15px;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .love {
+      font-size: 4rem;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes zoomIn {
+      from { transform: scale(0.6); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: absolute;
+      top: -10px;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="love">💖</div>
+    <h1>Yayyyyy,I knew it!</h1>
+    <p>
+      This just made my heart skip a beat 🥰<br>
+      I can’t wait to see you 💕Love You
+    </p>
+  </div>
+
+  <script>
+    // Falling hearts animation
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+      heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }, 250);
+  </script>
+
+</body>
+</html>
