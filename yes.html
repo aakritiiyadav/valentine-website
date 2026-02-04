@@ -23,36 +23,44 @@
     }
 
     .container {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px 50px;
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
       animation: zoomIn 1.5s ease;
     }
 
+    img {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
     h1 {
-      font-size: 3.2rem;
-      margin-bottom: 15px;
+      font-size: 3rem;
+      margin-bottom: 10px;
       animation: heartbeat 1.5s infinite;
     }
 
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
     p {
-      font-size: 1.4rem;
-      margin-bottom: 30px;
+      font-size: 1.3rem;
       opacity: 0;
       animation: fadeIn 2s ease forwards;
       animation-delay: 1s;
     }
 
-    .love {
-      font-size: 4rem;
-      animation: float 2s ease-in-out infinite;
-    }
-
-    /* Animations */
     @keyframes zoomIn {
       from { transform: scale(0.6); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 1; }
     }
 
     @keyframes heartbeat {
@@ -60,12 +68,15 @@
       50% { transform: scale(1.1); }
     }
 
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
 
-    /* Falling hearts */
     .heart {
       position: absolute;
       top: -10px;
@@ -83,17 +94,26 @@
 </head>
 <body>
 
+  <!-- 🎵 Background Music -->
+  <audio autoplay loop>
+    <source src="mere.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="container">
-    <div class="love">💖</div>
-    <h1>Yayyyyy,I knew it!</h1>
+    <!-- HIS PHOTO -->
+    <img src="ricky.jpeg" alt="My Valentine">
+
+    <!-- HIS NAME -->
+    <h1>You Said YES! 💖</h1>
+    <h2>My Valentine, <span>Ricky BabyBoo</span> 🥰</h2>
+
     <p>
-      This just made my heart skip a beat 🥰<br>
-      I can’t wait to see you 💕Love You
+      This moment means everything to me !!! Love You💕<br>
+      I can’t wait to make beautiful memories with you ❤️
     </p>
   </div>
 
   <script>
-    // Falling hearts animation
     setInterval(() => {
       const heart = document.createElement('div');
       heart.classList.add('heart');
@@ -102,10 +122,7 @@
       heart.style.fontSize = Math.random() * 20 + 15 + 'px';
       heart.style.animationDuration = Math.random() * 3 + 3 + 's';
       document.body.appendChild(heart);
-
-      setTimeout(() => {
-        heart.remove();
-      }, 6000);
+      setTimeout(() => heart.remove(), 6000);
     }, 250);
   </script>
 
